@@ -58,21 +58,6 @@ describe('html-to-text', function() {
     });
   });
 
-  describe('.fromFile()', function() {
-    it('should convert file at given path', function(done) {
-
-      var htmlFile = path.join(__dirname, 'test.html'),
-        txtFile = path.join(__dirname, 'test.txt');
-
-      var expectedTxt = fs.readFileSync(txtFile, 'utf8');
-      htmlToText.fromFile(htmlFile, { tables: ['#invoice', '.address'] }, function(err, text) {
-        expect(err).to.be.a('null');
-        expect(text).to.equal(expectedTxt);
-        done()
-      });
-    });
-  });
-
   describe('li', function () {
     it('doesnt wrap li if wordwrap isnt', function () {
       var html = 'Good morning Jacob, \
